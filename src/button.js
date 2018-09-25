@@ -30,6 +30,7 @@ export default function Button(options = {}) {
   }) : '';
   const textMarkup = text ? Element({
     cls: textCls,
+    innerHTML: text,
     tagName: 'span'
   }).render() : '';
 

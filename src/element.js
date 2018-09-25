@@ -8,6 +8,7 @@ export default function Element(options = {}) {
   const {
     cls = '',
     components = [],
+    innerHTML = '',
     style = {},
     tagName = 'div'
   } = options;
@@ -33,7 +34,7 @@ export default function Element(options = {}) {
       this.dispatch('render');
     },
     render() {
-      el = createElement(tagName, '', renderSettings);
+      el = createElement(tagName, innerHTML, renderSettings);
       el.innerHTML = renderComponents(this.getComponents());
       if (target) {
         target.appendChild(el);
