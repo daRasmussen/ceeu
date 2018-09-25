@@ -28,8 +28,9 @@ export default function Button(options = {}) {
     cls: iconCls,
     style: iconStyle
   }) : '';
-  const textMarkup = text ? Element('span', {
-    cls: textCls
+  const textMarkup = text ? Element({
+    cls: textCls,
+    tagName: 'span'
   }).render() : '';
 
   const getState = () => state;
