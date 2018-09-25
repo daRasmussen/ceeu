@@ -35,7 +35,9 @@ export default function Element(options = {}) {
     },
     render() {
       el = createElement(tagName, innerHTML, renderSettings);
-      el.innerHTML = renderComponents(this.getComponents());
+      if (this.getComponents().length) {
+        el.innerHTML = renderComponents(this.getComponents());
+      }
       if (target) {
         target.appendChild(el);
         this.dispatch('render');

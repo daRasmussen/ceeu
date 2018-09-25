@@ -2,9 +2,9 @@ var app = function app() {
 
   var Buttons = function Buttons() {
     var btn1;
-    return cs.Component({
+    return cu.Component({
       onInit() {
-        btn1 = cs.Button({
+        btn1 = cu.Button({
           click: () => { alert('click')},
           cls: 'bg-primary text-white rounded',
           text: 'Button'
@@ -22,7 +22,7 @@ var app = function app() {
 
   var buttons;
 
-  return cs.Component({
+  return cu.Component({
     onInit() {
       buttons = Buttons();
       this.addComponent(buttons);
@@ -35,7 +35,7 @@ var app = function app() {
                           ${buttons.render()}
                         </div>
                       </div>`;
-      var el = cs.dom.html(template);
+      var el = cu.dom.html(template);
       target.appendChild(el);
       this.dispatch('render');
     }
