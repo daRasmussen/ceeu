@@ -1,4 +1,5 @@
 import Button from './src/button';
+import Icon from './src/icon';
 import Element from './src/element';
 import ToggleGroup from './src/togglegroup';
 import * as dom from './src/dom/dom';
@@ -10,6 +11,7 @@ const cu = {
   Component,
   Element,
   Eventer,
+  Icon,
   dom,
   ToggleGroup
 };
