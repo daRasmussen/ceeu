@@ -1,0 +1,16 @@
+
+$list-border: 1px solid $border-color;
+$list-spacer: .75rem;
+
+.list {
+  & > .item {
+    padding-top: $list-spacer;
+    padding-bottom: $list-spacer;  
+  }
+  &.divided > .item {
+    border-bottom: $list-border;
+  }
+  &.divided > .item:last-child {
+    border: none;
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "name": "codesketch",
+  "version": "1.0.0",
+  "description": "",
+  "style": "build/css/codesketch.css",
+  "main": "codesketch.js",
+  "scripts": {
+    "start": "npm run watch-js | npm run prebuild-sass | npm run watch-sass",
+    "watch-js": "webpack-dev-server --config ./tasks/webpack.dev.js",
+    "watch-sass": "node-sass -w --include-path scss scss/codesketch.scss build/css/codesketch.css",
+    "build-sass": "node-sass --include-path scss scss/codesketch.scss build/css/codesketch.css",
+    "prebuild-sass": "node-sass --include-path scss scss/codesketch.scss build/css/codesketch.css",
+    "test": "tape -r ./src/component babel-register test/**/*.js"
+  },
+  "author": "Andreas Fogelberg",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
+    "compression-webpack-plugin": "^1.1.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
+    "node-sass": "4.7.2",
+    "tape": "^4.9.1",
+    "uglify-js": "3.2.0",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.11.1",
+    "webpack-bundle-analyzer": "^2.13.1",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-server": "^3.1.3",
+    "webpack-merge": "^4.1.2"
+  },
+  "dependencies": {
+    "cuid": "^2.1.1"
+  }
+}
