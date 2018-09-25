@@ -5,7 +5,7 @@ import * as dom from './src/dom/dom';
 import Component from './src/component';
 import Eventer from './src/utils/eventer';
 
-const cs = {
+const cu = {
   Button,
   Component,
   Element,
