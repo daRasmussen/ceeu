@@ -1,4 +1,5 @@
 import Component from './component';
+import Element from './element';
 import Icon from './icon';
 import { createStyle } from './dom/dom';
 
@@ -15,7 +16,8 @@ export default function Button(options = {}) {
     iconCls = '',
     iconStyle = {},
     click,
-    style: styleSettings
+    style: styleSettings,
+    textCls = ''
   } = options;
 
   let buttonEl;
@@ -25,7 +27,10 @@ export default function Button(options = {}) {
     icon,
     cls: iconCls,
     style: iconStyle
-  }) : null;
+  }) : '';
+  const textMarkup = text ? Element('span', {
+    cls: textCls
+  }).render() : '';
 
   const getState = () => state;
 
@@ -48,9 +53,9 @@ export default function Button(options = {}) {
 
   const getInnerHTML = () => {
     if (iconComponent) {
-      return `${text}${iconComponent.render()}`;
+      return `${textMarkup}${iconComponent.render()}`;
     }
-    return text;
+    return textMarkup;
   };
 
   const onChange = function onChange(evt) {
