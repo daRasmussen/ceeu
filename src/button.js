@@ -91,12 +91,11 @@ export default function Button(options = {}) {
       if (click) {
         this.on('click', click.bind(this));
         this.on('clear', () => {
-          this.off('click', click.bind(this));
+          this.un('click', click.bind(this));
         });
       }
       buttonEl.addEventListener('click', (e) => {
         this.dispatch('click');
-        e.stopImmediatePropagation();
         e.preventDefault();
       });
       if (validStates.indexOf(state) > 0) {

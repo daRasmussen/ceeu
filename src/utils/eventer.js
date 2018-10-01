@@ -1,21 +1,21 @@
 const Eventer = function Eventer() {
+  const events = {};
   return {
-    events: {},
-    on: function on(event, callback) {
-      const callbacks = this.events[event] || [];
-      callbacks.push(callback.bind(this));
-      this.events[event] = callbacks;
+    on: function on(type, listener) {
+      const listeners = events[type] || [];
+      listeners.push(listener);
+      events[type] = listeners;
     },
-    un: function un(event, callback) {
-      const callbacks = this.events[event];
-      this.events[event] = callbacks.filter((cb => cb !== callback));
+    un: function un(type, listener) {
+      const listeners = events[type] || [];
+      events[type] = listeners.filter((originalListener => originalListener !== listener));
     },
-    dispatch: function dispatch(event, data) {
-      const callbacks = this.events[event];
-      if (!callbacks || callbacks.length < 1) {
+    dispatch: function dispatch(type, data = {}) {
+      const listeners = events[type] || [];
+      if (!listeners || listeners.length < 1) {
         return;
       }
-      callbacks.forEach(cb => cb(data));
+      listeners.forEach(listener => listener.call(this, data));
     }
   };
 };

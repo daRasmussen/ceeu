@@ -16,13 +16,22 @@ const ToggleGroup = function ToggleGroup(options = {}) {
 
   function toggleHandler(evt) {
     const parent = document.getElementById(this.getId());
+    let newActive;
+    let oldActive;
     this.getComponents().forEach((component) => {
       if (matches(`#${component.getId()}`, parent, evt.target)) {
-        component.dispatch('change', { state: 'active' });
-      } else {
-        component.dispatch('change', { state: 'initial' });
+        newActive = component;
+      }
+      if (component.getState() === 'active') {
+        oldActive = component;
       }
     });
+    if (newActive && (newActive !== oldActive)) {
+      newActive.dispatch('change', { state: 'active' });
+      if (oldActive) {
+        oldActive.dispatch('change', { state: 'initial' });
+      }
+    }
     evt.preventDefault();
   }
 
