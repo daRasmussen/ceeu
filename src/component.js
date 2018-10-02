@@ -25,7 +25,14 @@ const Base = function Base() {
       components = [];
     },
     getComponents: () => components,
-    getId: () => id
+    getId: () => id,
+    removeComponent(component) {
+      const index = components.indexOf(component);
+      if (index > -1) {
+        components.splice(index, 1);
+        component.dispatch('clear', { target: this });
+      }
+    }
   };
 };
 

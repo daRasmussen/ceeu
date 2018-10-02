@@ -17,11 +17,11 @@ export default function Button(options = {}) {
     iconStyle = {},
     click,
     style: styleSettings,
-    textCls = ''
+    textCls = '',
+    validStates = ['initial', 'active', 'disabled', 'loading']
   } = options;
 
   let buttonEl;
-  const validStates = ['initial', 'active', 'disabled', 'loading'];
   const style = createStyle(styleSettings);
   const iconComponent = icon ? Icon({
     icon,
@@ -106,6 +106,11 @@ export default function Button(options = {}) {
       return `<button id="${this.getId()}" class="${cls}" style="${style}">
                 ${getInnerHTML()}
               </button>`;
+    },
+    setIcon(newIcon) {
+      if (iconComponent) {
+        iconComponent.setIcon(newIcon);
+      }
     },
     setState
   });

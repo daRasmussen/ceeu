@@ -1,6 +1,6 @@
 import Component from './component';
 import typeOfIcon from './utils/typeoficon';
-import { createStyle } from './dom/dom';
+import { createStyle, html } from './dom/dom';
 
 export default function Icon(options = {}) {
   let {
@@ -23,16 +23,22 @@ export default function Icon(options = {}) {
       }
       if (iconType === 'sprite') {
         return `
-          <svg class="${cls}" style="${style}">
+          <svg id="${this.getId()}" class="${cls}" style="${style}">
             <use xlink:href=${icon}></use>
           </svg>
         `;
       }
       return '';
     },
+    update() {
+      const el = document.getElementById(this.getId());
+      const newEl = html(this.render());
+      el.parentNode.replaceChild(newEl, el);
+    },
     setIcon(newIcon) {
       iconType = typeOfIcon(newIcon);
       icon = newIcon;
+      this.update();
     }
   });
 }
