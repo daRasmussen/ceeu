@@ -3,8 +3,10 @@ const Eventer = function Eventer() {
   return {
     on: function on(type, listener) {
       const listeners = events[type] || [];
-      listeners.push(listener);
-      events[type] = listeners;
+      if (listener) {
+        listeners.push(listener);
+        events[type] = listeners;
+      }
     },
     un: function un(type, listener) {
       const listeners = events[type] || [];

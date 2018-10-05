@@ -53,6 +53,9 @@ button {
   &.primary {
     background-color: $primary-color;
   }
+  &.danger {
+    background-color: $danger-color;
+  }  
   &.light {
     background-color: $light-color;
   }
@@ -115,4 +118,7 @@ button:hover,
   &.primary:hover {
     background-color: $primary-color-dark;
   }
+  &.danger:hover {
+    background-color: $danger-color-dark;
+  }  
 }

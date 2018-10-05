@@ -708,6 +708,9 @@
     .cu .button.primary,
     .cu button.primary {
       background-color: #008ff5; }
+    .cu .button.danger,
+    .cu button.danger {
+      background-color: #c33932; }
     .cu .button.light,
     .cu button.light {
       background-color: white; }
@@ -759,6 +762,9 @@
     .cu button:hover.primary:hover,
     .cu .button:hover.primary:hover {
       background-color: #0080db; }
+    .cu button:hover.danger:hover,
+    .cu .button:hover.danger:hover {
+      background-color: #ae332d; }
   .cu .icon > * {
     margin: 0;
     padding: 0; }

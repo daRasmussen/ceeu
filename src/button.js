@@ -48,7 +48,7 @@ export default function Button(options = {}) {
       }
       state = newState;
       if (state in methods) {
-        methods[state](buttonEl);
+        methods[state].call(this, buttonEl);
       }
     }
   };
