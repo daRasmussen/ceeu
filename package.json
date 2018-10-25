@@ -6,11 +6,12 @@
   "main": "ceeu.js",
   "scripts": {
     "start": "npm run watch-js | npm run prebuild-sass | npm run watch-sass",
-    "watch-js": "webpack-dev-server --config ./tasks/webpack.dev.js",
+    "watch-js": "webpack-dev-server --config ./tasks/webpack.dev.js --progress",
     "watch-sass": "node-sass -w --include-path scss scss/ceeu.scss build/css/ceeu.css",
     "build-sass": "node-sass --include-path scss scss/ceeu.scss build/css/ceeu.css",
     "prebuild-sass": "node-sass --include-path scss scss/ceeu.scss build/css/ceeu.css",
-    "test": "tape -r ./src/component babel-register test/**/*.js"
+    "test": "tape -r ./src/component babel-register test/**/*.js",
+    "build": "webpack --config ./tasks/webpack.prod.js --progress"
   },
   "author": "Andreas Fogelberg",
   "license": "MIT",

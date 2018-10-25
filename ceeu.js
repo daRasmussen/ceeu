@@ -5,6 +5,7 @@ import ToggleGroup from './src/togglegroup';
 import * as dom from './src/dom/dom';
 import Component from './src/component';
 import Eventer from './src/utils/eventer';
+import Window from './src/window';
 
 const cu = {
   Button,
@@ -13,7 +14,8 @@ const cu = {
   Eventer,
   Icon,
   dom,
-  ToggleGroup
+  ToggleGroup,
+  Window
 };
 
 export default cu;

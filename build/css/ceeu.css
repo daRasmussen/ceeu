@@ -816,6 +816,42 @@
     border: none; }
   .cu .toggle-group {
     display: inline-block; }
+  .cu #window {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    overflow: hidden;
+    width: 400px;
+    min-width: 300px;
+    max-width: 80%;
+    height: 400px;
+    min-height: 300px;
+    max-height: 80%; }
+  .cu #window-head {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+    height: 40px; }
+  .cu #window-body {
+    padding: 10px;
+    z-index: 10;
+    background-color: #d3d3d3;
+    color: #fff;
+    height: 360px; }
+  .cu #window-ghost {
+    pointer-events: none;
+    width: 400px;
+    max-width: 100%;
+    height: 400px;
+    max-height: 100%;
+    background-color: rgba(135, 135, 135, 0.5);
+    opacity: 0.9;
+    position: absolute;
+    z-index: 10; }
 
 .app {
   background-color: rgba(0, 0, 0, 0.1);
