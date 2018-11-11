@@ -8,7 +8,7 @@ var app = function app() {
           draggable: true,
           resizable: true,
           position: {
-            top: '44px',
+            top: '45px',
             left: '25px'
           },
           cls: '',
