@@ -38,7 +38,7 @@ var app = function app() {
       var target = document.querySelector('.app');
       var template = `<div class="padding-large">
                         <div>
-                          <h5>Window</h5>
+                          <h5>Window Component</h5>
                           ${windows.render()}
                         </div>
                       </div>`;
