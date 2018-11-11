@@ -1,15 +1,19 @@
-var app = function app() { 
-
+var app = function app() {
+  console.log(cu);
   var Windows = function Windows() {
     var window1;
     return cu.Component({
       onInit() {
         window1 = cu.Window({
           // click: () => { alert('click') },
-          
+          draggable: true,
+          resizable: true,
+          position: {
+            top: '45px',
+            left: '25px'
+          },
           cls: '',
           text: ''
-
           // title: 'Click Me!',
           // body: 'Body'
         });

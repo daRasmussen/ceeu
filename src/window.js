@@ -1,7 +1,7 @@
 import Component from './component';
 import Element from './element';
 import Icon from './icon';
-import { createStyle } from './dom/dom';
+import {createStyle} from './dom/dom';
 
 function create(options) {
   const nel = document.createElement(options.type);
@@ -23,6 +23,9 @@ export default function Window(options = {}) {
     iconCls = '',
     iconStyle = {},
     click,
+    draggable,
+    resizable,
+    position,
     style: styleSettings,
     textCls = '',
     validStates = ['initial', 'active', 'disabled', 'loading']
@@ -92,6 +95,11 @@ export default function Window(options = {}) {
     return textMarkup;
   };
 
+  function dragElement(elmnt) {
+    const header = document.getElementById(`${elmnt.id}`);
+    // console.log(header);
+  }
+
   const onChange = function onChange(evt) {
     if (evt.state) {
       setState(evt.state);
@@ -120,6 +128,18 @@ export default function Window(options = {}) {
     },
     onRender() {
       windowEl = document.getElementById(this.getId());
+      const window = windowEl.querySelector('#window');
+      if (resizable) {
+        window.setAttribute('style', 'resize: both;');
+      }
+
+      if (draggable) {
+        dragElement(windowEl);
+      }
+
+      if (position) {
+        window.setAttribute('style', `top: ${position.top}; left: ${position.left}`);
+      }
       if (click) {
         this.on('click', click.bind(this));
         this.on('clear', () => {
@@ -129,7 +149,9 @@ export default function Window(options = {}) {
       windowEl.addEventListener('click', (e) => {
         this.dispatch('click');
         e.preventDefault();
+        alert('click');
       });
+
       if (validStates.indexOf(state) > 0) {
         windowEl.classList.add(state);
       }
