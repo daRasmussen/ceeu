@@ -1,5 +1,4 @@
 var app = function app() {
-  console.log(cu);
   var Windows = function Windows() {
     var window1;
     return cu.Component({

@@ -1,7 +1,9 @@
 import Component from './component';
 import Element from './element';
 import Icon from './icon';
-import {createStyle} from './dom/dom';
+import {
+  createStyle
+} from './dom/dom';
 
 function create(options) {
   const nel = document.createElement(options.type);
